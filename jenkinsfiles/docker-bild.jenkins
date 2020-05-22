@@ -16,7 +16,7 @@ pipeline {
                 echo " ============== docker login =================="
                 withCredentials([usernamePassword(credentialsId: 'savchuk-dockerhub', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]) {
                     sh """
-                    sudo docker login -u $USERNAME -p $PASSWORD
+                    docker login -u $USERNAME -p $PASSWORD
                     """
                 }
             }
