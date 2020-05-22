@@ -26,5 +26,10 @@ pipeline {
                 sh 'ssh root@192.168.1.115 \'whoami\''
             }
         }
+        stage("Fourth step") {
+            steps {
+                sh 'ssh root@192.168.1.115 \'ls -la\''
+            }
+        }
     }
 }
