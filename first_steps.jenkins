@@ -38,7 +38,7 @@ pipeline {
         }
         stage("Sixth step") {
             steps {
-                sh 'ssh root@192.168.1.115 \'ls -ll\''
+                sh 'ssh root@192.168.1.115 \'hostname\''
             }
         }
     }
