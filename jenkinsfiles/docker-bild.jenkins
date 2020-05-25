@@ -43,7 +43,7 @@ pipeline {
                 echo " ============== docker login =================="
                 withCredentials([usernamePassword(credentialsId: 'savchuk-dockerhub', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]) {
                     sh """
-                    ssh root@192.168.1.115 \'docker login -u $USERNAME -p $PASSWORD\'
+                    ssh root@192.168.1.115 \'docker login -u $USERNAME -p $PASSWORD && docker run savchuk\'
                     """
                 }
             }
