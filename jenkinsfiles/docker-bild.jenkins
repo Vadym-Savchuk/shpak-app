@@ -42,8 +42,17 @@ pipeline {
             steps {
                 echo " ============== start login =================="
                 sh '''
-                ssh root@192.168.1.115 \'uptime\'
+                ssh root@192.168.1.115
                 '''
+            }
+        }
+         stage("docker login from server") {
+            steps {
+                echo " ============== start docker login =================="
+                withCredentials([usernamePassword(credentialsId: 'savchuk-dockerhub', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]) {
+                    sh """
+                    docker login -u $USERNAME -p $PASSWORD
+                    """
             }
         }
     }
