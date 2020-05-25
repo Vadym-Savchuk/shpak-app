@@ -38,5 +38,13 @@ pipeline {
                 '''
             }
         }
+        stage("SSH login to server") {
+            steps {
+                echo " ============== start login =================="
+                sh '''
+                ssh root@192.168.1.115 \'uptime\'
+                '''
+            }
+        }
     }
 }
