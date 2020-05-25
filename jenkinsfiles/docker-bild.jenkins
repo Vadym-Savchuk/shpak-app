@@ -41,11 +41,9 @@ pipeline {
         stage("SSH login to server") {
             steps {
                 echo " ============== docker login =================="
-                withCredentials([usernamePassword(credentialsId: 'savchuk-dockerhub', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]) {
-                    sh """
-                    ssh root@192.168.1.115 \'docker login -u $USERNAME -p $PASSWORD && docker run savchuk\'
-                    """
-                }
+                sh """
+                ssh root@192.168.1.115 \' docker run savchuk\'
+                """
             }
         }
     }
