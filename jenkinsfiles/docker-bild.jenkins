@@ -46,6 +46,14 @@ pipeline {
                 """
             }
         }
+        stage("SSH login to server 2") {
+            steps {
+                echo " ============== SSH login =================="
+                sh """
+                ssh root@192.168.1.115 \'docker images\'
+                """
+            }
+        }
         stage("docker login 2") {
             steps {
                 echo " ============== docker login =================="
