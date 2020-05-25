@@ -56,5 +56,14 @@ pipeline {
                 }
             }
          }
+         stage("docker run") {
+            steps {
+                echo " ============== docker run =================="
+                sh '''
+                docker run savchuk
+                docker ps -a
+                '''
+            }
+        }
     }
 }
