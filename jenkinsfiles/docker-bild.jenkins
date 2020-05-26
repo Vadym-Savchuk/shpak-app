@@ -50,7 +50,7 @@ pipeline {
             steps {
                 echo " ============== docker ps -a =================="
                 sh """
-                ssh root@192.168.1.115 \'docker ps -a\'
+                ssh root@192.168.1.115 \'docker ps -a && docker images\'
                 """
             }
         }
