@@ -38,11 +38,19 @@ pipeline {
                 '''
             }
         }
-        stage("SSH login to server") {
+        stage("docker run on server") {
             steps {
-                echo " ============== SSH login =================="
+                echo " ============== docker run =================="
                 sh """
-                ssh root@192.168.1.115 \'docker run -d savchuk/savchuk && docker ps -a\'
+                ssh root@192.168.1.115 \'docker run -d -p 80:8888 savchuk/savchuk\'
+                """
+            }
+        }
+        stage("docker ps -a") {
+            steps {
+                echo " ============== docker ps -a =================="
+                sh """
+                ssh root@192.168.1.115 \'docker ps -a\'
                 """
             }
         }
