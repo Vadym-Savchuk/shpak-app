@@ -42,7 +42,7 @@ pipeline {
             steps {
                 echo " ============== SSH login =================="
                 sh """
-                ssh root@192.168.1.115 \'docker pull savchuk/savchuk && docker images && docker run savchuk/savchuk\'
+                ssh root@192.168.1.115 \'docker run -d savchuk/savchuk && docker ps -a\'
                 """
             }
         }
